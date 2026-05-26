@@ -63,4 +63,12 @@ app.post('/api/checkout', async (req, res) => {
 });
 
 const PORT = process.env.PORT || 3000;
+// Tambahkan ini agar saat URL dibuka muncul tulisan, bukan "Cannot GET"
+app.get('/', (req, res) => {
+    res.send('🚀 TokoKita Backend is Running!');
+});
+
+// Tambahkan ini untuk menghilangkan error favicon di konsol
+app.get('/favicon.ico', (req, res) => res.status(204).end());
+
 app.listen(PORT, () => console.log(`🚀 Server TokoKita lari di http://localhost:${PORT}`));
